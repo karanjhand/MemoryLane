@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SecondFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.firstapp.FirstFragment"
+        android:label="@string/quiz"
+        tools:layout="@layout/fragment_first" >
+
+        <action
+            android:id="@+id/action_FirstFragment_to_MainMenuFragment"
+            app:destination="@id/SecondFragment" />
+        <argument
+            android:name="quizType"
+            app:argType="string"
+            android:defaultValue="premadeQuiz" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.firstapp.MainMenuFragment"
+        android:label="@string/main_menu_fragment_label"
+        tools:layout="@layout/fragment_main_menu">
+
+        <action
+            android:id="@+id/action_MainMenuFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+        <argument
+            android:name="myArg"
+            app:argType="integer" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.firstapp.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>
